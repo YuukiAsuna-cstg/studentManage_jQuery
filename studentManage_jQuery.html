@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="src/css/studentManage_jQuery.css">
+</head>
+<body>
+<div class="wrapper">
+    <div class="header">
+        <div class="logo">
+            <img src="src/img/logo.png" alt="">
+            <span class="user">YugiAsuna</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="left-menu">
+            <dl id="menu">
+                <dt>学生管理</dt>
+                <dd data-id="student-list">学生列表</dd>
+                <dd data-id="add-student">新增学生</dd>
+            </dl>
+        </div>
+        <div class="right-content">
+            <div class="student-list page" id="student-list">
+                <div class="search">
+                    <label for="search-word">关键字搜索：</label>
+                    <input type="text" id="search-word">
+                    <button id="search-submit">搜索</button>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>学号</th>
+                            <th>姓名</th>
+                            <th>性别</th>
+                            <th>邮箱</th>
+                            <th>年龄</th>
+                            <th>手机号</th>
+                            <th>住址</th>
+                            <th>操作</th>
+                        </tr>
+                    </thead>
+                    <tbody id="student-body">
+                        <!--<tr>-->
+                            <!--<td>0001</td>-->
+                            <!--<td>秀儿</td>-->
+                            <!--<td>男</td>-->
+                            <!--<td>123@qq.com</td>-->
+                            <!--<td>18</td>-->
+                            <!--<td>17755558888</td>-->
+                            <!--<td>秀儿村</td>-->
+                            <!--<td>-->
+                                <!--<button class="btn edit">编辑</button>-->
+                                <!--<button class="btn delete">删除</button>-->
+                            <!--</td>-->
+                        <!--</tr>-->
+                    </tbody>
+                </table>
+                <div class="wrapper">
+                    <ul id="turn-page"></ul>
+                </div>
+                <div class="modal">
+                    <div class="mask"></div>
+                    <div class="modal-content">
+                        <h2>编辑信息</h2>
+                        <form action="#" class="add-student-form" id="edit-student-form">
+                            <div>
+                                <label for="name">姓名</label>
+                                <input type="text"  name="name" autocomplete="off">
+                            </div>
+                            <div>
+                                <label>性别</label>
+                                <input type="radio" name="sex" value="male" checked><span>男</span>
+                                <input type="radio" name="sex" value="female"><span>女</span>
+                            </div>
+                            <div>
+                                <label for="sNo">学号</label>
+                                <input type="text"  name="sNo" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="email">邮箱</label>
+                                <input type="text"  name="email" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="birth">生日</label>
+                                <input type="text"  name="birth" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="phone">手机号</label>
+                                <input type="text"  name="phone" autocomplete="off">
+                            </div>
+                            <div>
+                                <label for="address">住址</label>
+                                <input type="text"  name="address" autocomplete="off">
+                            </div>
+                            <div>
+                                <label></label>
+                                <input type="submit" value="提交" class="btn edit-submit">
+                                <input type="reset" value="重置" class="btn">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div >
+            <div class="add-student page" id="add-student">
+                <form action="#" class="add-student-form" id="add-student-form">
+                    <div>
+                        <label for="name">姓名</label>
+                        <input type="text" id="name" name="name">
+                    </div>
+                    <div>
+                        <label>性别</label>
+                        <input type="radio" name="sex" value="male" checked><span>男</span>
+                        <input type="radio" name="sex" value="female"><span>女</span>
+                    </div>
+                    <div>
+                        <label for="sNo">学号</label>
+                        <input type="text" id="sNo" name="sNo">
+                    </div>
+                    <div>
+                        <label for="email">邮箱</label>
+                        <input type="text" id="email" name="email">
+                    </div>
+                    <div>
+                        <label for="birth">生日</label>
+                        <input type="text" id="birth" name="birth">
+                    </div>
+                    <div>
+                        <label for="phone">手机号</label>
+                        <input type="text" id="phone" name="phone">
+                    </div>
+                    <div>
+                        <label for="address">住址</label>
+                        <input type="text" id="address" name="address">
+                    </div>
+                    <div>
+                        <label></label>
+                        <input type="submit" value="提交" class="btn add-submit">
+                        <input type="reset" value="重置" class="btn">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="src/js/component/index.js"></script>
+<script src="src/js/studentManage_jQuery.js"></script>
+<script>
+    // transferData('/api/student/addStudent', {
+    //     sNo: 00001,
+    //     name: '秀儿',
+    //     sex: 0,
+    //     birth: 2000,
+    //     phone: 17777777777,
+    //     address: '艾欧尼亚',
+    //     email: 'yugiasuna@qq.com'
+    // }, function (req) {
+    //     console.log(req);
+    // });
+</script>
+</html>
